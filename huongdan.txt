@@ -1,5 +1,5 @@
 Hướng dẫn cài đặt
-Bước 1: tạo 1 file và chuột phải ‘git bash here’ vào file đó
+Bước 1: tạo 1 file và chuột phải ‘open git bash here’ vào file đó
 Bước 2: dùng lệnh để lấy code về “ git clone https://github.com/quocthangvo/TH_LapTrinhWeb.git “ hoặc download file zip về máy và giải nén 
 Bước 3: code đã có trong file và copy file đó bỏ vào htdocs nếu dùng XAMPP và bỏ vào www nếu dùng WAMP
 Bước 4: mở code bằng visual code studio hoặc sublime text
