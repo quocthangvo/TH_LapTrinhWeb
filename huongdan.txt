@@ -6,7 +6,7 @@ Bước 4: mở code bằng visual code studio hoặc sublime text
 Hướng dẫn sử dụng 
 Bước 1: bật XAMPP hoặc WAMP lên
 Bước 2: mở localhost/phpmyadmin, chọn New tạo 1 database mới đặt tên là web_phone và chọn vào nó 
-Bước 3: chọn import và chọn vào file , chọn file có chứa database đã tải về 
+Bước 3: chọn import và chọn vào file , chọn file 'web_phone(1)' có chứa database đã tải về 
 Bước 4: Nhấn import
 Bước 5: mở localhost trên trình duyệt, chọn file có chứa code vừa tải về 
 Bước 6: ở trang chủ của website có thể chọn đăng ký, để đăng ký tài khoản user
