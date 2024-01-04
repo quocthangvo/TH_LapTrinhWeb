@@ -18,14 +18,33 @@ if (isset($_POST['addcategory'])) {
     $sql_xoa = "DELETE FROM tbl_category WHERE id_category = '" . $id . "' ";
     mysqli_query($mysqli, $sql_xoa);
     header('Location:../../index.php?action=quanlidanhmucsanpham&query=add');
-}
-function isCategoryEmpty($categoryId)
-{
-    global $mysqli;
-    $sql = "SELECT COUNT(*) as count FROM tbl_product WHERE id_category = '$categoryId'";
-    $result = mysqli_query($mysqli, $sql);
+} elseif (isset($_GET['idcategory'])) {
+    $id = $_GET['idcategory'];
+
+    // Kiểm tra xem có sản phẩm nào thuộc danh mục cần xóa không
+    $sql_kiemtra = "SELECT COUNT(*) AS product_count FROM tbl_product WHERE id_category = '" . $id . "'";
+    $result = mysqli_query($mysqli, $sql_kiemtra);
     $row = mysqli_fetch_assoc($result);
-    return $row['count'] == 0;
+    $product_count = $row['product_count'];
+
+    if ($product_count > 0) {
+        // Nếu có sản phẩm thuộc danh mục này, không xóa và thực hiện hành động cần thiết (vd: thông báo lỗi)
+        $message = "Không thể xóa danh mục vì có sản phẩm thuộc danh mục này.";
+    } else {
+        // Nếu không có sản phẩm thuộc danh mục này, thực hiện truy vấn xóa
+        $sql_xoa = "DELETE FROM tbl_category WHERE id_category = '" . $id . "'";
+        mysqli_query($mysqli, $sql_xoa);
+        header('Location:../../index.php?action=quanlidanhmucsanpham&query=add');
+    }
 }
 
 ?>
+<script>
+    var message = "<?php echo $message; ?>"; // Chuyển biến PHP sang JavaScript
+
+    if (message) {
+        // Nếu có thông báo lỗi, hiển thị cảnh báo và chuyển hướng về trang chính
+        alert(message);
+        window.location.href = '../../index.php?action=quanlidanhmucsanpham&query=add';
+    }
+</script>
